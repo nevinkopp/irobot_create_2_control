@@ -1,0 +1,10 @@
+[package]
+name = "irobot_create_2_control"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+gilrs = { version = "0.10", default-features = false, features = ["xinput"] }
+
+
+
