@@ -1,1 +1,1 @@
-irobot_create_2_control is a rust crate that you can use to control your create 2 robot with a gamepad. It uses gilrs and the iRobot Create 2 Open Interface (OI) for Roomba 600 series robots. 
+irobot_create_2_control is a rust crate that you can use to control your Create 2 with a gamepad. It uses gilrs and the iRobot Create 2 Open Interface (OI) for Roomba 600 series robots. 
