@@ -3,12 +3,12 @@ use std::thread;
 use std::time::Duration;
 
 fn main() {
-    // Initialize GilRs with the XInput backend (based on your Cargo.toml)
+    
     let mut gilrs = Gilrs::new().unwrap();
     println!("Xbox Controller Active. Move sticks or press A/B/X/Y...");
 
     loop {
-        // 1. Process Events (Buttons)
+        // 1. Button Events
         while let Some(Event { event, .. }) = gilrs.next_event() {
             match event {
                 EventType::ButtonPressed(button, _) => {
@@ -26,7 +26,7 @@ fn main() {
             }
         }
 
-        // 2. Poll State (Sticks)
+        // 2. Stick Positions
         for (_id, gamepad) in gilrs.gamepads() {
             let lx = gamepad.axis_data(Axis::LeftStickX).map(|a| a.value()).unwrap_or(0.0);
             let ly = gamepad.axis_data(Axis::LeftStickY).map(|a| a.value()).unwrap_or(0.0);
@@ -44,7 +44,7 @@ fn main() {
             }
         }
 
-        // Sleep briefly to prevent 100% CPU usage
+        
         thread::sleep(Duration::from_millis(16));
     }
 }
