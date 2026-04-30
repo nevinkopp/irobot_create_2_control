@@ -5,6 +5,7 @@ edition = "2024"
 
 [dependencies]
 gilrs = { version = "0.10", default-features = false, features = ["xinput"] }
+serialport = "4.3"
 
 
 
