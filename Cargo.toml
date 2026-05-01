@@ -4,7 +4,8 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-gilrs = { version = "0.10", default-features = false, features = ["xinput"] }
+#gilrs = { version = "0.10", default-features = false, features = ["xinput"] }
+gilrs = { version = "0.10", default-features = true }
 serialport = "4.3"
 
 
