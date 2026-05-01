@@ -3,7 +3,7 @@ use std::thread;
 use std::time::Duration;
 use serialport::SerialPort;
 
-// Direct drive function takes in serial port and the left and right values from the gamepad
+// Direct drive function takes in serial port and the left and right values from the gamepad. 
 fn send_drive_direct(port: &mut dyn SerialPort, left: i16, right: i16) {
     let l_bytes = left.to_be_bytes();
     let r_bytes = right.to_be_bytes();
