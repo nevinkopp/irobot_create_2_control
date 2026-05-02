@@ -18,6 +18,9 @@ fn main() {
         .timeout(Duration::from_millis(10))
         .open()
         .expect("Failed to open serial port");
+    let define_beep = [140, 0, 1, 60, 16];
+    port.write_all(&define_beep).expect("Failed to define song");
+    
 
     port.write_all(&[128]).unwrap();
     thread::sleep(Duration::from_millis(50));
@@ -34,10 +37,14 @@ fn main() {
             match event {
                 EventType::ButtonPressed(button, _) => {
                     match button {
-                        Button::South => println!("Button: A"),
-                        Button::East => println!("Button: B"),
-                        Button::West => println!("Button: X"),
-                        Button::North => println!("Button: Y"),
+                        Button::South =>  {
+                            println!("Button: South");
+                            let play_beep = [141, 0]; // Opcode 141, Play Song Slot 0
+                            port.write_all(&play_beep).expect("Failed to play honk");
+                        },
+                        Button::East => println!("Button: East"),
+                        Button::West => println!("Button: West"),
+                        Button::North => println!("Button: North"),
                         Button::LeftTrigger => println!("Bumper: LB"),
                         Button::RightTrigger => println!("Bumper: RB"),
                         _ => (),
@@ -75,6 +82,7 @@ fn main() {
                  println!("Right Stick -> X: {:>5.2}, Y: {:>5.2}", rx, ry);
              }
         }
+
 
         
         thread::sleep(Duration::from_millis(20));
