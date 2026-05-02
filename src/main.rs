@@ -29,7 +29,7 @@ fn main() {
 
     
     let mut gilrs = Gilrs::new().unwrap();
-    println!("Xbox Controller Active...");
+    println!("Gamepad Active...");
 
     loop {
         // 1. Button Events
@@ -40,7 +40,7 @@ fn main() {
                         Button::South =>  {
                             println!("Button: South");
                             let play_beep = [141, 0]; // Opcode 141, Play Song Slot 0
-                            port.write_all(&play_beep).expect("Failed to play honk");
+                            port.write_all(&play_beep).expect("Failed to play beep");
                         },
                         Button::East => println!("Button: East"),
                         Button::West => println!("Button: West"),
