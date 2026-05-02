@@ -13,7 +13,7 @@ fn send_drive_direct(port: &mut dyn SerialPort, left: i16, right: i16) {
 
 fn main() {
 
-    let port_name = "COM3"; // Change this to your serial port
+    let port_name = "/dev/ttyUSB0"; // Change this to your serial port
     let mut port = serialport::new(port_name, 115200)
         .timeout(Duration::from_millis(10))
         .open()
