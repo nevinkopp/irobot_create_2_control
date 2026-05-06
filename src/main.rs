@@ -60,10 +60,13 @@ fn main() {
                             //port.write_all(&play_beep).expect("Failed to play beep");
                             port.write_all(&[141, 0]).unwrap();
                             //thread::sleep(Duration::from_secs(6));
-                            port.write_all(&[141, 1]).unwrap();
+                            
 
                         },
-                        Button::East => println!("Button: East"),
+                        Button::East => {
+                            println!("Button: East");
+                            port.write_all(&[141, 1]).unwrap();
+                        },
                         Button::West => println!("Button: West"),
                         Button::North => println!("Button: North"),
                         Button::LeftTrigger => println!("Bumper: LB"),
