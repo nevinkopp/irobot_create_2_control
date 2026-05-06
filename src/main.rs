@@ -18,8 +18,25 @@ fn main() {
         .timeout(Duration::from_millis(10))
         .open()
         .expect("Failed to open serial port");
-    let define_beep = [140, 0, 1, 60, 16];
-    port.write_all(&define_beep).expect("Failed to define song");
+    //let define_beep = [140, 0, 1, 60, 16];
+
+    let b_day_0 = [
+        140, 0, 12, // Opcode 140, Song 0, 12 notes
+        67, 24, 67, 8, 69, 32, 67, 32, 72, 32, 71, 64, // "Happy Birthday to you"
+        67, 24, 67, 8, 69, 32, 67, 32, 74, 32, 72, 64
+    ];
+    port.write_all(&b_day_0).unwrap();
+        
+        
+    let b_day_1 = [
+        140, 1, 13, // Opcode 140, Song 1, 13 notes
+        67, 24, 67, 8, 79, 32, 76, 32, 72, 32, 71, 32, 69, 64, 
+        77, 24, 77, 8, 76, 32, 72, 32, 74, 32, 72, 64
+    ];
+    port.write_all(&b_day_1).unwrap();
+
+
+    //port.write_all(&define_beep).expect("Failed to define song");
     
 
     port.write_all(&[128]).unwrap();
@@ -39,8 +56,12 @@ fn main() {
                     match button {
                         Button::South =>  {
                             println!("Button: South");
-                            let play_beep = [141, 0]; // Opcode 141, Play Song Slot 0
-                            port.write_all(&play_beep).expect("Failed to play beep");
+                            //let play_beep = [141, 0]; // Opcode 141, Play Song Slot 0
+                            //port.write_all(&play_beep).expect("Failed to play beep");
+                            port.write_all(&[141, 0]).unwrap();
+                            thread::sleep(Duration::from_secs(6));
+                            port.write_all(&[141, 1]).unwrap();
+
                         },
                         Button::East => println!("Button: East"),
                         Button::West => println!("Button: West"),
