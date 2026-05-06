@@ -59,7 +59,7 @@ fn main() {
                             //let play_beep = [141, 0]; // Opcode 141, Play Song Slot 0
                             //port.write_all(&play_beep).expect("Failed to play beep");
                             port.write_all(&[141, 0]).unwrap();
-                            thread::sleep(Duration::from_secs(6));
+                            //thread::sleep(Duration::from_secs(6));
                             port.write_all(&[141, 1]).unwrap();
 
                         },
