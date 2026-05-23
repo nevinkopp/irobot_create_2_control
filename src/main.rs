@@ -21,35 +21,35 @@ fn main() {
 
     // Songs/Beeps 
 
-    let happy = [140, 0, 11, 84, 8, 0, 2, 82, 2, 84, 2, 86, 2, 87, 2, 91, 4, 82, 8];
-    port.write_all(&happy).unwrap();
+    //let happy = [140, 0, 11, 84, 8, 0, 2, 82, 2, 84, 2, 86, 2, 87, 2, 91, 4, 82, 8];
+    //port.write_all(&happy).unwrap();
 
-    let sad = [140, 1, 3, 60, 12, 55, 12, 48, 24];
-    port.write_all(&sad).unwrap();
+    //let sad = [140, 1, 3, 60, 12, 55, 12, 48, 24];
+    //port.write_all(&sad).unwrap();
 
-    let curious = [140, 2, 4, 75, 4, 0, 2, 75, 4, 82, 12];
-    port.write_all(&curious).unwrap();
+    //let curious = [140, 2, 4, 75, 4, 0, 2, 75, 4, 82, 12];
+    //port.write_all(&curious).unwrap();
 
-    let panic = [140, 3, 6, 88, 2, 90, 2, 88, 2, 90, 2, 88, 2, 93, 16];
-    port.write_all(&panic).unwrap();
+    //let panic = [140, 3, 6, 88, 2, 90, 2, 88, 2, 90, 2, 88, 2, 93, 16];
+    //port.write_all(&panic).unwrap();
 
     //let beep = [140, 0, 1, 60, 16]; // simple beep
     //port.write_all(&beep).unwrap();
 
-    // let b_day_0 = [ // happy bday part 1
-    //     140, 0, 12, 
-    //     67, 24, 67, 8, 69, 32, 67, 32, 72, 32, 71, 64, 
-    //     67, 24, 67, 8, 69, 32, 67, 32, 74, 32, 72, 64
-    // ];
-    //port.write_all(&b_day_0).unwrap();
+    let b_day_0 = [ // happy bday part 1
+         140, 0, 12, 
+         67, 24, 67, 8, 69, 32, 67, 32, 72, 32, 71, 64, 
+         67, 24, 67, 8, 69, 32, 67, 32, 74, 32, 72, 64
+    ];
+    port.write_all(&b_day_0).unwrap();
         
         
-    // let b_day_1 = [ // happy bday part 2
-    //     140, 1, 13, 
-    //     67, 24, 67, 8, 79, 32, 76, 32, 72, 32, 71, 32, 69, 64, 
-    //     77, 24, 77, 8, 76, 32, 72, 32, 74, 32, 72, 64
-    // ];
-    //port.write_all(&b_day_1).unwrap();
+    let b_day_1 = [ // happy bday part 2
+         140, 1, 13, 
+         67, 24, 67, 8, 79, 32, 76, 32, 72, 32, 71, 32, 69, 64, 
+         77, 24, 77, 8, 76, 32, 72, 32, 74, 32, 72, 64
+     ];
+    port.write_all(&b_day_1).unwrap();
 
     port.write_all(&[128]).unwrap();
     thread::sleep(Duration::from_millis(50));
