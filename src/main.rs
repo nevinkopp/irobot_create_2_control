@@ -41,7 +41,7 @@ fn main() {
          67, 24, 67, 8, 69, 32, 67, 32, 72, 32, 71, 64, 
          67, 24, 67, 8, 69, 32, 67, 32, 74, 32, 72, 64
     ];
-    port.write_all(&b_day_0).unwrap();
+    //port.write_all(&b_day_0).unwrap();
         
         
     let b_day_1 = [ // happy bday part 2
@@ -49,7 +49,7 @@ fn main() {
          67, 24, 67, 8, 79, 32, 76, 32, 72, 32, 71, 32, 69, 64, 
          77, 24, 77, 8, 76, 32, 72, 32, 74, 32, 72, 64
      ];
-    port.write_all(&b_day_1).unwrap();
+    //port.write_all(&b_day_1).unwrap();
 
     port.write_all(&[128]).unwrap();
     thread::sleep(Duration::from_millis(50));
