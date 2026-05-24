@@ -76,11 +76,11 @@ fn main() {
                         },
                         Button::West =>  {
                             println!("Button: West");
-                            port.write_all(&[141, 2]).unwrap(); // curious beep
+                            //port.write_all(&[141, 2]).unwrap(); // curious beep
                         },
                         Button::North => {
                             println!("Button: North");
-                            port.write_all(&[141, 3]).unwrap(); // panic beep
+                            //port.write_all(&[141, 3]).unwrap(); // panic beep
                         },
                         Button::LeftTrigger => println!("Bumper: LB"),
                         Button::RightTrigger => println!("Bumper: RB"),
